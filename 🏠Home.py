@@ -1,6 +1,5 @@
 import streamlit as st
 import json
-from PIL import Image
 import requests
 from streamlit_lottie import st_lottie
 
@@ -61,7 +60,6 @@ with left_column:
 with st.container():
     st.write('---')
     st.header("What I've done in the past")
-    picture = Image.open("/Users/louisvilleseche/Desktop/Projects/Website/Images/image.png")
     # research
     st.subheader("🔬Student Researcher: **Deakin Integrated Reporting Centre**")
     st.write("**Projects**: Review of ASX300 Corporate Governance Recommendation 4.3 Disclosures: Effectiveness of communication and efficacy of integrity enhancement process"
