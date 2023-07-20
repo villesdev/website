@@ -1,0 +1,4 @@
+streamlit
+streamlit_lottie
+pandas>=1.2.0
+numpy==1.21.0
