@@ -12,10 +12,11 @@ with lefttitle:
 
 left, middle, right = st.columns((0.5, 0.1, 2))
 with left:
-    assets = st.text_input("Provide asset ticker")
-    dollars = st.number_input("How much would you like to invest? ($)")
-    start = st.date_input('Start', value=pd.to_datetime('2023-01-01'))
-    end = st.date_input('End', value=pd.to_datetime('today'))
+    assets = st.text_input("Provide asset ticker", value = "NFLX")
+    dollars = st.number_input("How much would you like to invest? ($)", step = 50)
+    today = pd.to_datetime('today')
+    start = st.date_input('Start', value=pd.to_datetime('2023-01-01'), max_value = today - pd.Timedelta(days=1))
+    end = st.date_input('End', value=today)
 if len(assets) > 0:
     def relativeret(df):
         rel = df.pct_change()
@@ -40,19 +41,31 @@ if len(assets) > 0:
             # Calculate the return
             change = (((end_price - start_price)/start_price))*100
             dollarret = dollars * change / 100
-
-            st.metric(label=f'Your return on {dollars:.2f} is ${dollarret:.2f}', value=assets,
-                      delta='{:.2%}'.format(change / 100))
+            tickers_list = assets.split(',')
+            number_tickers = len(tickers_list)
+            multiplereturnpercentage = change.mean()
+            multiplereturndollar = (multiplereturnpercentage * dollars)/100
+            if number_tickers > 1:
+                st.metric(label=f'Your return on \${dollars:.2f} is ${multiplereturndollar:.2f}', value=assets, delta='{:.2%}'.format(multiplereturnpercentage / 100))
+            if number_tickers == 1:
+                st.metric(label=f'Your return on \${dollars:.2f} is ${dollarret:.2f}', value=assets, delta='{:.2%}'.format(change / 100))
 
     with middle:
         st.write(' ')
 
     with goodorbad:
-        st.title('\n')
-        if change > 0.01:
-            st.subheader(f"{assets} was a :green[good] investment")
-        if change < 0.01:
-            st.subheader(f"{assets} was a :red[bad] investment")
+        if number_tickers == 1:
+            st.title('\n')
+            if change > 0.01:
+                st.subheader(f"{assets} was a :green[good] investment")
+            if change < 0.01:
+                st.subheader(f"{assets} was a :red[bad] investment")
+        if number_tickers > 1:
+            st.title('\n')
+            if multiplereturnpercentage > 0.01:
+                st.subheader(f"{assets} was a :green[good] investment")
+            if multiplereturnpercentage < 0.01:
+                st.subheader(f"{assets} was a :red[bad] investment")
 
 # port visualiser
 st.write('---')
