@@ -108,14 +108,11 @@ if len(assets2) > 0:
         ('\n')
         ('\n')
 
-        risk = pf_std/bench_risk
+        risk = pf_std / bench_risk
+
         if risk < 2:
             st.subheader("Your portfolio is :green[risk averse]")
-        if risk > 2 < 3:
+        elif 2 <= risk < 3:
             st.subheader("Your portfolio is :orange[somewhat risky]")
-        if risk > 3:
+        else:
             st.subheader("Your portfolio is :red[very risky]")
-
-
-
-
