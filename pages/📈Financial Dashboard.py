@@ -56,16 +56,15 @@ if len(assets) > 0:
         if number_tickers == 1:
             st.title('\n')
             if change > 0.01:
-                st.subheader(f"{assets} was a :green[good] investment, returning " + f":green[$] :green[{multiplereturndollar:.2f}]")
+                st.subheader(f"{assets} was a :green[good] investment, returning " + f":green[$] :green[{dollarret:.2f}]")
             if change < 0.01:
-                st.subheader(f"{assets} was a :red[bad] investment " + f":red[$] :red[{multiplereturndollar:.2f}]")
+                st.subheader(f"{assets} was a :red[bad] investment " + f":red[$] :red[{dollarret:.2f}]")
         if number_tickers > 1:
             st.title('\n')
             if multiplereturnpercentage > 0.01:
-                st.subheader(
-                    f"{assets} was a :green[good] investment, returning " + f":green[$] :green[{dollarret:.2f}]")
+                st.subheader(f"{assets} was a :green[good] investment, returning " + f":green[$] :green[{multiplereturndollar:.2f}]")
             if multiplereturnpercentage < 0.01:
-                st.subheader(f"{assets} was a :red[bad] investment, returning " + f":red[$] :red[{dollarret:.2f}]")
+                st.subheader(f"{assets} was a :red[bad] investment, returning " + f":red[$] :red[{multiplereturndollar:.2f}]")
 
 # port visualiser
 st.write('---')
