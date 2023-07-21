@@ -1,7 +1,4 @@
-import yfinance as yf
-import streamlit as st
-import pandas as pd
-import numpy as np
+
 
 # security visualiser
 lefttitle, righttitle, goodorbad = st.columns((2,1,1))
