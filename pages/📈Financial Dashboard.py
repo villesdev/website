@@ -12,10 +12,10 @@ with lefttitle:
 left, middle, right = st.columns((0.5, 0.1, 2))
 with left:
     assets = st.text_input("Provide asset tickers", value = "NFLX")
-    dollars = st.number_input("How much would you like to invest? ($)", step = 50)
+    dollars = st.number_input("How much would you like to invest? ($)", step = 50, min_value = 0)
     today = pd.to_datetime('today')
     start = st.date_input('Start', value=pd.to_datetime('2023-01-01'), max_value = today - pd.Timedelta(days=1))
-    end = st.date_input('End', value=today)
+    end = st.date_input('End', value=today, max_value = today)
 if len(assets) > 0:
     def relativeret(df):
         rel = df.pct_change()
@@ -74,7 +74,7 @@ left2, middle, right2, right3 = st.columns((2, 1, 4, 4))
 with left2:
     assets2 = st.text_input(("Provide asset tickers (comma-separated)"), value='AMZN, NFLX, TSLA', key="1")
     if len(assets2) > 0:
-        start = st.date_input('Start date', value=pd.to_datetime('2023-01-01'))
+        start = st.date_input('Start date', value=pd.to_datetime('2023-01-01'), max_value = today)
 
 with middle:
     ('')
