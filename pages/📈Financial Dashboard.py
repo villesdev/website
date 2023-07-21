@@ -3,6 +3,7 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 
+
 # security visualiser
 lefttitle, righttitle, goodorbad = st.columns((2,1,1))
 with lefttitle:
@@ -61,8 +62,8 @@ left2, middle, right2, right3 = st.columns((2, 1, 4, 4))
 with left2:
     assets2 = st.text_input(("Provide asset tickers (comma-separated)"), key="1")
     if len(assets2) > 0:
-        commence = st.date_input("Pick a starting date for your analysis",
-                                value=pd.to_datetime('2022-06-01'))
+        start = st.date_input('Start date', value=pd.to_datetime('2023-01-01'))
+
 with middle:
     ('')
 if len(assets2) > 0:
