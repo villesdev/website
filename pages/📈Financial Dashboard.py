@@ -72,7 +72,7 @@ st.title('Portfolio Visualiser')
 st.write('Displays a line graph of your portfolio''s returns against the S&P500, and calculates the total risk of each variable')
 left2, middle, right2, right3 = st.columns((2, 1, 4, 4))
 with left2:
-    assets2 = st.text_input(("Provide asset tickers (comma-separated)"), key="1")
+    assets2 = st.text_input(("Provide asset tickers (comma-separated)"), value='AMZN, NFLX', key="1")
     if len(assets2) > 0:
         start = st.date_input('Start date', value=pd.to_datetime('2023-01-01'))
 
