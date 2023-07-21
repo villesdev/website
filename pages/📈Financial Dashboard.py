@@ -3,6 +3,7 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 
+st.write('Hello')
 
 # security visualiser
 lefttitle, righttitle, goodorbad = st.columns((2,1,1))
