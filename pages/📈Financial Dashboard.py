@@ -56,7 +56,7 @@ if len(assets) > 0:
         if number_tickers == 1:
             st.title('\n')
             if change > 0.01:
-                st.subheader(f"{assets} was a :green[good] investment")
+                st.subheader(f"{assets} was a :green[good] investment, returning" + f":green[{multiplereturndollar}]")
             if change < 0.01:
                 st.subheader(f"{assets} was a :red[bad] investment")
         if number_tickers > 1:
