@@ -3,7 +3,6 @@ import json
 import requests
 from streamlit_lottie import st_lottie
 
-# test commit home
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
