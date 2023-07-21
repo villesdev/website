@@ -2,7 +2,7 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import numpy as np
-
+st. set_page_config(layout="wide")
 # security visualiser
 lefttitle, righttitle, goodorbad = st.columns((2,1,1.6))
 with lefttitle:
