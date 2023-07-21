@@ -67,7 +67,6 @@ if len(assets) > 0:
                 st.subheader(f"{assets} was a :red[bad] investment, returning " + f":red[$] :red[{multiplereturndollar:.2f}]")
 
 # port visualiser
-st.write('---')
 st.title('Risk Visualiser')
 st.write('Displays a line graph of your portfolios returns against the S&P500, and calculates the total risk')
 left2, middle, right2, right3 = st.columns((2, 1, 4, 4))
