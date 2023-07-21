@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 # security visualiser
-lefttitle, righttitle, goodorbad = st.columns((2,1,1))
+lefttitle, righttitle, goodorbad = st.columns((2,1,1.4))
 with lefttitle:
     st.title('Stock Return Visualiser')
     st.write('Displays a line graph of the returns of your chosen securities against time')
@@ -62,9 +62,10 @@ if len(assets) > 0:
         if number_tickers > 1:
             st.title('\n')
             if multiplereturnpercentage > 0.01:
-                st.subheader(f"{assets} was a :green[good] investment")
+                st.subheader(
+                    f"{assets} was a :green[good] investment, returning " + f":green[$] :green[{dollarret:.2f}]")
             if multiplereturnpercentage < 0.01:
-                st.subheader(f"{assets} was a :red[bad] investment")
+                st.subheader(f"{assets} was a :red[bad] investment, returning " + f":red[$] :red[{dollarret:.2f}]")
 
 # port visualiser
 st.write('---')
