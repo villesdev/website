@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 # security visualiser
-lefttitle, righttitle, goodorbad = st.columns((2,0.7,1.6))
+lefttitle, righttitle, goodorbad = st.columns((2,1,1.6))
 with lefttitle:
     st.title('Stock Return Visualiser')
     st.write('Displays a line graph of the returns of your chosen securities against time')
