@@ -12,6 +12,7 @@ with lefttitle:
 left, middle, right = st.columns((0.5, 0.1, 2))
 with left:
     assets = st.text_input("Provide asset tickers", value = "NFLX")
+    assets = assets.upper()
     dollars = st.number_input("How much would you like to invest? ($)", step = 50, min_value = 0)
     today = pd.to_datetime('today')
     start = st.date_input('Start', value=pd.to_datetime('2023-01-01'), max_value = today - pd.Timedelta(days=1))
@@ -81,6 +82,7 @@ with middle:
 if len(assets2) > 0:
     data = yf.download(assets2, start=start, end=end)['Adj Close']
     if data.empty:
+        assets2.upper = assets2
         st.write(f"No data available for the provided asset tickers: {assets2}")
     else:
         ret_df = data.pct_change()
