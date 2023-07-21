@@ -53,6 +53,7 @@ if len(assets) > 0:
         st.write(' ')
 
     with goodorbad:
+        assets = assets.upper()
         if number_tickers == 1:
             st.title('\n')
             if change > 0.01:
@@ -81,6 +82,7 @@ with middle:
 if len(assets2) > 0:
     data = yf.download(assets2, start=start, end=end)['Adj Close']
     if data.empty:
+        assets2.upper = assets2
         st.write(f"No data available for the provided asset tickers: {assets2}")
     else:
         ret_df = data.pct_change()
