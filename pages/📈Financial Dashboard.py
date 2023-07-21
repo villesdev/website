@@ -6,12 +6,12 @@ import numpy as np
 # security visualiser
 lefttitle, righttitle, goodorbad = st.columns((2,1,1))
 with lefttitle:
-    st.title('Stock Return Viewer')
-    st.write('Displays a line graph of the returns of your chosen security against time')
+    st.title('Stock Return Visualiser')
+    st.write('Displays a line graph of the returns of your chosen securities against time')
 
 left, middle, right = st.columns((0.5, 0.1, 2))
 with left:
-    assets = st.text_input("Provide asset ticker", value = "NFLX")
+    assets = st.text_input("Provide asset tickers", value = "NFLX")
     dollars = st.number_input("How much would you like to invest? ($)", step = 50)
     today = pd.to_datetime('today')
     start = st.date_input('Start', value=pd.to_datetime('2023-01-01'), max_value = today - pd.Timedelta(days=1))
@@ -68,8 +68,8 @@ if len(assets) > 0:
 
 # port visualiser
 st.write('---')
-st.title('Portfolio Visualiser')
-st.write('Displays a line graph of your portfolio''s returns against the S&P500, and calculates the total risk of each variable')
+st.title('Risk Visualiser')
+st.write('Displays a line graph of your portfolios returns against the S&P500, and calculates the total risk')
 left2, middle, right2, right3 = st.columns((2, 1, 4, 4))
 with left2:
     assets2 = st.text_input(("Provide asset tickers (comma-separated)"), value='AMZN, NFLX', key="1")
